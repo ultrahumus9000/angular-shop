@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IProduct } from './product.module';
-
+import productsData from "../../../_course-resources/catalog/products-data"
 @Component({
   selector: 'bot-catalog',
   templateUrl: './catalog.component.html',
@@ -8,20 +8,11 @@ import { IProduct } from './product.module';
 })
 
 export class CatalogComponent {
-  product!: IProduct;
-  
-  constructor(){
-    this.product=  {
-      id: 1,
-      description:
-        "A robot head with an unusually large eye and teloscpic neck -- excellent for exploring high spaces.",
-      name: "Large Cyclops",
-      imageName: "head-big-eye.png",
-      category: "Heads",
-      price: 1220.5,
-      discount: 0.2,
-    }
-  }
+  products: IProduct[]= productsData;
+
+  // constructor(){
+  //   this.products=  productsData
+  // }
   
   getImageUrl=(product:IProduct)=>"../../assets/images/robot-parts/"+ product.imageName 
   
