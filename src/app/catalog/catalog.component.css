@@ -9,8 +9,13 @@
     padding: 25px 200px;
   }
   
-  .filters button {
+  .filters .button {
     width: 100px;
+    background-color: rgb(102, 102, 203);
+    border: 2px solid white;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
   }
   
   .products {
