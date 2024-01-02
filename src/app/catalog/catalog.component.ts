@@ -22,5 +22,7 @@ export class CatalogComponent {
       discount: 0.2,
     }
   }
-
+  
+  getImageUrl=(product:IProduct)=>"../../assets/images/robot-parts/"+ product.imageName 
+  
 }
