@@ -9,11 +9,14 @@ import productsData from "../../../_course-resources/catalog/products-data"
 
 export class CatalogComponent {
   products: IProduct[]= productsData;
-
+  filterLabel:string = ""
   // constructor(){
   //   this.products=  productsData
   // }
   
   getImageUrl=(product:IProduct)=>"../../assets/images/robot-parts/"+ product.imageName 
-  
+  getFilteredProducts= ()=>{
+
+    return this.filterLabel===""?this.products:this.products.filter(product=>product.category===this.filterLabel)
+  }
 }
