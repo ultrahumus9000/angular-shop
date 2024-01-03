@@ -14,9 +14,9 @@ export class CatalogComponent {
   //   this.products=  productsData
   // }
   
-  getImageUrl=(product:IProduct)=>"../../assets/images/robot-parts/"+ product.imageName 
+  getImageUrl=(product:IProduct)=>"../../assets/images/robot-parts/"+ product?.imageName 
   getFilteredProducts= ()=>{
 
-    return this.filterLabel===""?this.products:this.products.filter(product=>product.category===this.filterLabel)
+    return this.filterLabel===""?this.products:this.products.filter(product=>product?.category===this.filterLabel)
   }
 }

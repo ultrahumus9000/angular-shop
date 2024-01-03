@@ -1,4 +1,4 @@
-export interface IProduct {
+export type IProduct= {
     id:number,
     description:string
     name: string, 
@@ -6,4 +6,4 @@ export interface IProduct {
     category: string,
     price: number,
     discount: number
-}
+}|null
