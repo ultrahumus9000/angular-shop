@@ -19,7 +19,7 @@
             </div>
           </div>
           <div class="price">
-            <div [ngClass]="{'strikethrough':product?.discount??0>0}">{{product?.price?.toFixed(2)|currency:"CNY"}}</div>
+            <div [style.font-weight]="'bolder'" [ngStyle]="{'color':product?.discount??0>0?'green':''}" [ngClass]="{'strikethrough':product?.discount??0>0}">{{product?.price?.toFixed(2)|currency:"CNY"}}</div>
             <div *ngIf="product?.discount??0>0"class="discount">{{(((1-(product?.discount??0)))*(product?.price??0)).toFixed(2)|currency:"CNY" }}</div>
             <button class="cta">Buy</button>
           </div>
