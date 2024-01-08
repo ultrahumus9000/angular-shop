@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { IProduct } from './product.module';
 import productsData from '../../../_course-resources/catalog/products-data';
+import { CartService } from '../service/cart.service';
 @Component({
   selector: 'bot-catalog',
   templateUrl: './catalog.component.html',
@@ -9,10 +10,10 @@ import productsData from '../../../_course-resources/catalog/products-data';
 export class CatalogComponent {
   products: IProduct[] = productsData;
   filterLabel: string = '';
-  cart: IProduct[] = [];
-  // constructor(){
-  //   this.products=  productsData
-  // }
+  // private anotherCartSvc: CartService = inject(CartService);
+  constructor(private cartSvc: CartService) {
+    this.products = productsData;
+  }
 
   getFilteredProducts = () => {
     return this.filterLabel === ''
@@ -22,7 +23,6 @@ export class CatalogComponent {
         );
   };
   addToCart(product: IProduct) {
-    this.cart.push(product);
-    console.log(`i add ${product?.name} to cart`);
+    this.cartSvc.add(product);
   }
 }
