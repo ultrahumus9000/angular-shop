@@ -15,8 +15,9 @@ export class CartService {
     } else {
       lineItem = { product, qty: 1 };
       this.cart.push(lineItem);
-      console.log(`i add ${product?.name} to cart`);
     }
+    console.log(`i add ${product?.name} to cart`);
+    console.log(`total price is ${this.getTotalPrice()}`);
   }
   getTotalPrice() {
     return Math.round(
