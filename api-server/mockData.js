@@ -174,4 +174,20 @@ let products = [
   },
 ];
 
-module.exports = products;
+const users = {
+  "lin@lisrobotshop.com": {
+    firstName: "Linlin",
+    lastName: "li",
+    email: "lin@lisrobotshop.com",
+    password: "very-secret",
+  },
+  "thomas@lisrobotshop.com": {
+    firstName: "Thomas",
+    lastName: "li",
+    email: "thomas@lisrobotshop.com",
+    password: "super-secret",
+  },
+};
+let cart = [];
+
+module.exports = { products, cart, users };
