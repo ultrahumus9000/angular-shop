@@ -1,18 +1,26 @@
 import { Component, inject } from '@angular/core';
 import { IProduct } from './product.module';
-import productsData from '../../../_course-resources/catalog/products-data';
 import { CartService } from '../service/cart.service';
+import { ProductService } from './product.service';
 @Component({
   selector: 'bot-catalog',
   templateUrl: './catalog.component.html',
   styleUrls: ['./catalog.component.css'],
 })
 export class CatalogComponent {
-  products: IProduct[] = productsData;
+  products!: IProduct[];
   filterLabel: string = '';
   // private anotherCartSvc: CartService = inject(CartService);
-  constructor(private cartSvc: CartService) {
-    this.products = productsData;
+  constructor(
+    private cartSvc: CartService,
+    private productSvc: ProductService
+  ) {}
+
+  ngOnInit() {
+    this.productSvc.getProduct().subscribe((productsFromServer) => {
+      console.log('what is product from server', productsFromServer);
+      this.products = productsFromServer;
+    });
   }
 
   getFilteredProducts = () => {

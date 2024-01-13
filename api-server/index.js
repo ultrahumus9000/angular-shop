@@ -6,6 +6,7 @@ const { products, cart, users } = require("./mockData");
 app.use(express.json());
 
 app.get("/api/products", (req, res) => {
+  console.log(products);
   res.json(products);
 });
 
