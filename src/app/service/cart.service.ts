@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
 import { IProduct } from '../catalog/product.module';
 import { ILineItem } from '../catalog/ILineItem.module';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
   cart: ILineItem[] = [];
+
+  constructor(private http: HttpClient) {}
 
   add(product: IProduct) {
     let lineItem = this.findLineItem(product);
@@ -16,7 +19,12 @@ export class CartService {
       lineItem = { product, qty: 1 };
       this.cart.push(lineItem);
     }
-    console.log(`i add ${product?.name} to cart`);
+    this.http.post('/api/cart', this.cart).subscribe((cart) => {
+      console.log('this is cart', cart);
+
+      console.log(`i add ${product?.name} to cart`);
+    });
+
     console.log(`total price is ${this.getTotalPrice()}`);
   }
   getTotalPrice() {

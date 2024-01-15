@@ -1,16 +1,37 @@
 const express = require("express");
 const app = express();
 const port = 8081;
-const { products, cart, users } = require("./mockData");
+const fs = require("fs");
+let { products, cart, users } = require("./mockData");
 
 app.use(express.json());
 
 app.get("/api/products", (req, res) => {
-  console.log(products);
   res.json(products);
 });
 
-app.get("/api/cart", (req, res) => res.send(cart));
+app.post("/api/cart", (req, res) => {
+  cart = req.body;
+
+  console.log("this is cart", cart);
+
+  // try {
+  //   fs.writeFileSync(
+  //     "./mockData.js",
+  //     `module.exports = ${JSON.stringify(
+  //       { ...require("./mockData.js"), cart },
+  //       null,
+  //       2
+  //     )};`
+  //   );
+
+  //   console.log("mockData.js updated successfully");
+  // } catch (error) {
+  //   console.error("Error writing to mockData.js:", error);
+  // }
+
+  res.send(cart);
+});
 
 app.post("/api/register", (req, res) =>
   setTimeout(() => {

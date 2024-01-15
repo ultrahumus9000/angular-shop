@@ -18,7 +18,6 @@ export class CatalogComponent {
 
   ngOnInit() {
     this.productSvc.getProduct().subscribe((productsFromServer) => {
-      console.log('what is product from server', productsFromServer);
       this.products = productsFromServer;
     });
   }
