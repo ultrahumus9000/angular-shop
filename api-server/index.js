@@ -9,7 +9,9 @@ app.use(express.json());
 app.get("/api/products", (req, res) => {
   res.json(products);
 });
-
+app.get("/api/cart", (req, res) => {
+  res.send(cart);
+});
 app.post("/api/cart", (req, res) => {
   cart = req.body;
 
