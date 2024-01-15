@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { IProduct } from './product.module';
-import { CartService } from '../service/cart.service';
+import { CartService } from '../cart/cart.service';
 import { ProductService } from './product.service';
 @Component({
   selector: 'bot-catalog',
