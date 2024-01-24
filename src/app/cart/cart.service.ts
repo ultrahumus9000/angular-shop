@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { IProduct } from '../catalog/product.module';
 import { ILineItem } from '../catalog/ILineItem.module';
 import { HttpClient } from '@angular/common/http';
+import { getImageUrl } from '../utils';
 
 @Injectable({
   providedIn: 'root',
@@ -10,6 +11,8 @@ export class CartService {
   cart: ILineItem[] = [];
 
   constructor(private http: HttpClient) {}
+
+  getImageUrl = getImageUrl;
 
   add(product: IProduct) {
     let lineItem = this.findLineItem(product);
