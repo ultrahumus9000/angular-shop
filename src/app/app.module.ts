@@ -26,6 +26,11 @@ const routes: Routes = [
     component: CartComponent,
     title: "Cart - Linlin's Robot Shop",
   },
+  {
+    path: '',
+    redirectTo: '/home',
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({
