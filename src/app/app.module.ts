@@ -8,6 +8,25 @@ import { SiteHeaderComponent } from './site-header/site-header.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CartComponent } from './cart/cart.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+  {
+    path: 'home',
+    component: HomeComponent,
+    title: "Home - Linlin's Robot Shop",
+  },
+  {
+    path: 'products',
+    component: CatalogComponent,
+    title: "Product - Linlin's Robot Shop",
+  },
+  {
+    path: 'cart',
+    component: CartComponent,
+    title: "Cart - Linlin's Robot Shop",
+  },
+];
 
 @NgModule({
   declarations: [
@@ -18,7 +37,7 @@ import { CartComponent } from './cart/cart.component';
     ProductDetailsComponent,
     CartComponent,
   ],
-  imports: [BrowserModule, HttpClientModule],
+  imports: [BrowserModule, HttpClientModule, RouterModule.forRoot(routes)],
   providers: [],
   bootstrap: [AppComponent],
 })
