@@ -18,7 +18,11 @@
 
   <ul class="robot-parts-cta">
     <li>
-      <a routerLink="/products/Heads" class="part">
+      <a
+        routerLink="/products"
+        class="part"
+        [queryParams]="{ filterLabel: 'Heads' }"
+      >
         <img
           src="../../assets/images/robot-parts/head-shredder.png"
           alt="Robot Heads"
@@ -27,7 +31,11 @@
       </a>
     </li>
     <li>
-      <a routerLink="/products/Arms" class="part">
+      <a
+        routerLink="/products"
+        class="part"
+        [queryParams]="{ filterLabel: 'Arms' }"
+      >
         <img
           src="../../assets/images/robot-parts/arm-articulated-claw.png"
           alt="Robot Arms"
@@ -36,7 +44,11 @@
       </a>
     </li>
     <li>
-      <a routerLink="/products/Torsos" class="part">
+      <a
+        routerLink="/products"
+        class="part"
+        [queryParams]="{ filterLabel: 'Torsos' }"
+      >
         <img
           src="../../assets/images/robot-parts/torso-gauged.png"
           alt="Robot Torsos"
@@ -45,7 +57,11 @@
       </a>
     </li>
     <li>
-      <a outerLink="/products/Bases" class="part">
+      <a
+        routerLink="/products"
+        class="part"
+        [queryParams]="{ filterLabel: 'Bases' }"
+      >
         <img
           src="../../assets/images/robot-parts/base-spring.png"
           alt="Robot Bases"

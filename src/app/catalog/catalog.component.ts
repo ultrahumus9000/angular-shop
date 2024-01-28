@@ -24,7 +24,10 @@ export class CatalogComponent {
     this.productSvc.getProduct().subscribe((productsFromServer) => {
       this.products = productsFromServer;
     });
-    this.filterLabel = this.route.snapshot.params['filter'];
+    this.route.queryParams.subscribe((params) => {
+      this.filterLabel = params['filterLabel'] ?? '';
+      console.log('filterlabel is ', this.filterLabel);
+    });
   }
 
   getFilteredProducts = () => {
