@@ -25,15 +25,16 @@ export class CatalogComponent {
       this.products = productsFromServer;
     });
     this.route.queryParams.subscribe((params) => {
+      console.log('Query Params:', params);
       this.filterLabel = params['filterLabel'] ?? '';
-      console.log('filterlabel is ', this.filterLabel);
+      console.log('filter label ', this.filterLabel);
     });
   }
 
   getFilteredProducts = () => {
     return this.filterLabel === ''
       ? this.products
-      : this.products.filter(
+      : this.products?.filter(
           (product) => product?.category === this.filterLabel
         );
   };
