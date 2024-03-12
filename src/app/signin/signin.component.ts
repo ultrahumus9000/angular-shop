@@ -9,11 +9,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./signin.component.css'],
 })
 export class SignInComponent {
+  signInError: boolean = false;
   credentials: IUserCredentials = { email: '', password: '' };
   constructor(private userService: UserService, private router: Router) {}
   signIn() {
-    this.userService
-      .signIn(this.credentials)
-      .subscribe({ next: () => this.router.navigate(['/products']) });
+    this.signInError = false;
+    this.userService.signIn(this.credentials).subscribe({
+      next: () => this.router.navigate(['/products']),
+      error: () => (this.signInError = true),
+    });
   }
 }
