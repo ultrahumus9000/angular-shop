@@ -9,8 +9,14 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { HttpClientModule } from '@angular/common/http';
 import { CartComponent } from './cart/cart.component';
 import { RouterModule, Routes } from '@angular/router';
+import { SignInComponent } from './signin/signin.component';
 
 const routes: Routes = [
+  {
+    path: 'signin',
+    component: HomeComponent,
+    title: "Signin - Linlin's Robot Shop",
+  },
   {
     path: 'home',
     component: HomeComponent,
@@ -41,6 +47,7 @@ const routes: Routes = [
     SiteHeaderComponent,
     ProductDetailsComponent,
     CartComponent,
+    SignInComponent,
   ],
   imports: [BrowserModule, HttpClientModule, RouterModule.forRoot(routes)],
   providers: [],
