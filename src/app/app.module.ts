@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CartComponent } from './cart/cart.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SignInComponent } from './signin/signin.component';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -49,7 +50,12 @@ const routes: Routes = [
     CartComponent,
     SignInComponent,
   ],
-  imports: [BrowserModule, HttpClientModule, RouterModule.forRoot(routes)],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    RouterModule.forRoot(routes),
+    FormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

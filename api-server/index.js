@@ -51,7 +51,7 @@ app.post("/api/register", (req, res) =>
   }, 800)
 );
 
-app.post("/api/sign-in", (req, res) => {
+app.post("/api/signin", (req, res) => {
   const user = users[req.body.email];
   if (user && user.password === req.body.password) {
     res.status(200).send({
