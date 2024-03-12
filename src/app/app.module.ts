@@ -14,7 +14,7 @@ import { SignInComponent } from './signin/signin.component';
 const routes: Routes = [
   {
     path: 'signin',
-    component: HomeComponent,
+    component: SignInComponent,
     title: "Signin - Linlin's Robot Shop",
   },
   {
